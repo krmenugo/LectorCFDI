@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="library"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="jars_files/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="jars_files/jdom.jar"/>
+	<classpathentry kind="lib" path="jars_files/mysql-connector-java-5.1.6-bin.jar"/>
+	<classpathentry kind="lib" path="jars_files/com-jaspersoft-ireport-addons.jar"/>
+	<classpathentry kind="lib" path="jars_files/com-jaspersoft-ireport-components.jar"/>
+	<classpathentry kind="lib" path="jars_files/com-jaspersoft-ireport-designer-standalone.jar"/>
+	<classpathentry kind="lib" path="jars_files/com-jaspersoft-ireport-hadoop-hive.jar"/>
+	<classpathentry kind="lib" path="jars_files/com-jaspersoft-ireport-heartbeat.jar"/>
+	<classpathentry kind="lib" path="jars_files/com-jaspersoft-ireport-jasperserver.jar"/>
+	<classpathentry kind="lib" path="jars_files/com-jaspersoft-ireport-mongodb.jar"/>
+	<classpathentry kind="lib" path="jars_files/com-jaspersoft-ireport-samples.jar"/>
+	<classpathentry kind="lib" path="jars_files/com-jaspersoft-ireport.jar"/>
+	<classpathentry kind="lib" path="jars_files/com-jaspersoft-jrx.jar"/>
+	<classpathentry kind="lib" path="C:/Users/car/Downloads/jxl-6.0.0.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/AbsoluteLayout.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/ant-1.7.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/antlr-2.7.5.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/barbecue-1.5-beta1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/barcode4j-2.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-anim.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-awt-util.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-bridge.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-css.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-dom.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-ext.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-gvt.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-parser.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-script.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-svg-dom.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-svggen.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-util.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/batik-xml.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/bcel-5.2.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/bsh-2.0b4.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/castor-1.2.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/commons-beanutils-1.8.2.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/commons-javaflow-20060411.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/groovy-all-2.0.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/hibernate3.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/hsqldb-1.8.0-10.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/iText-2.1.7.js2.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/itext-pdfa-5.5.4.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/itextpdf-5.5.4.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jackson-annotations-2.0.5.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jackson-core-2.0.5.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jackson-databind-2.0.5.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jasperreports-5.6.0.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jasperreports-fonts-5.6.0.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jaxen-1.1.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jcommon-1.0.15.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jdt-compiler-3.1.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jfreechart-1.0.12.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jpa.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/jxl-2.6.10.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/mondrian-3.1.1.12687.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/mysql-connector-java-5.1.40-bin.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/png-encoder-1.5.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/poi-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/poi-ooxml-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/poi-ooxml-schemas-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/rhino-1.7R3.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/saaj-api-1.3.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/serializer.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/servlet-api-2.4.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/spring-beans-2.5.5.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/spring-core-2.5.5.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/velocity-1.7-dep.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/xalan-2.7.1.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/xbean.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/xercesImpl-2.10.0.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/xml-apis-ext.jar"/>
+	<classpathentry kind="lib" path="Librerias Ireport/xml-apis.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

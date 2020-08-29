@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CFDI_Leidos_Reporte" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a97d9419-5a44-48e1-9239-4cb8152bfbf0">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     cfdi.`folio_fiscal_str` AS cfdi_folio_fiscal_str,
+     cfdi.`fecha_pago_dt` AS cfdi_fecha_pago_dt,
+     cfdi.`id_empleado_int` AS cfdi_id_empleado_int,
+     cfdi.`nombre_empleado_str` AS cfdi_nombre_empleado_str,
+     cfdi.`rfc_str` AS cfdi_rfc_str,
+     cfdi.`total_pagado` AS cfdi_total_pagado,
+     cfdi.`fecha_ingreso_dt` AS cfdi_fecha_ingreso_dt
+FROM
+     `cfdi` cfdi]]>
+	</queryString>
+	<field name="cfdi_folio_fiscal_str" class="java.lang.String"/>
+	<field name="cfdi_fecha_pago_dt" class="java.lang.String"/>
+	<field name="cfdi_id_empleado_int" class="java.lang.String"/>
+	<field name="cfdi_nombre_empleado_str" class="java.lang.String"/>
+	<field name="cfdi_rfc_str" class="java.lang.String"/>
+	<field name="cfdi_total_pagado" class="java.lang.String"/>
+	<field name="cfdi_fecha_ingreso_dt" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="325" y="0" width="202" height="79" uuid="ae927387-324f-4617-aab0-8a16d3a7130b"/>
+				<imageExpression><![CDATA["C:\\Users\\car\\Pictures\\logoASA.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="123" y="9" width="564" height="20" uuid="33f1ebff-c160-4c51-83d7-191e5643aee3"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Información de los comprobantes fiscales digitales que han sido almacenados en base de datos.]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="163" y="22" width="100" height="20" uuid="b4a2face-ad4c-4009-a1fb-4de795525e2a"/>
+				<textElement textAlignment="Center">
+					<font fontName="MS PGothic" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[FECHA DE PAGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="22" width="100" height="20" uuid="123e5456-4a42-406d-91a7-9794bd21bd0b"/>
+				<textElement textAlignment="Center">
+					<font fontName="MS PGothic" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ID EMPLEADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="22" width="100" height="20" uuid="15022d6c-4c7e-46ae-8c05-002bfa84d1c0"/>
+				<textElement textAlignment="Center">
+					<font fontName="MS PGothic" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[EMPLEADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="515" y="22" width="100" height="20" uuid="6b519d7c-773b-4598-9951-b6bef489b710"/>
+				<textElement textAlignment="Center">
+					<font fontName="MS PGothic" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[RFC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="633" y="22" width="100" height="20" uuid="b94b2243-b8a3-4da5-b580-cd28a0c3ba9f"/>
+				<textElement textAlignment="Center">
+					<font fontName="MS PGothic" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[TOTAL PAGADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="22" width="100" height="20" uuid="77ec9608-eece-4664-9f77-f6dba3365023"/>
+				<textElement textAlignment="Center">
+					<font fontName="MS PGothic" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[FOLIO FISCAL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="49" y="9" width="684" height="1" uuid="599d8c15-fca8-488f-8d37-97590a44339a"/>
+			</line>
+			<line>
+				<reportElement x="49" y="49" width="684" height="1" uuid="433cbd07-8b2a-4575-bad3-faa712e1b385"/>
+			</line>
+			<line>
+				<reportElement x="49" y="6" width="684" height="1" uuid="1df57927-8c93-4023-bfd1-d4dcae9d3e27"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="49" y="0" width="100" height="20" uuid="91e72ed7-d804-4dd1-a0e9-6827d70bd2f2"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cfdi_folio_fiscal_str}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="163" y="0" width="100" height="20" uuid="502b6792-c75e-4a7d-8ad2-98c3bb3d4685"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cfdi_fecha_pago_dt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="281" y="1" width="100" height="20" uuid="46e03f4b-3569-4872-a682-28c5710e8e55"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cfdi_id_empleado_int}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="1" width="100" height="20" uuid="05d629bd-f249-4bd8-8e68-d94c82283dae"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cfdi_nombre_empleado_str}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="515" y="0" width="100" height="20" uuid="a0ee378c-794b-4346-b125-bae8807589ec"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cfdi_rfc_str}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="633" y="0" width="100" height="20" uuid="19db44c9-bbf0-4739-9cbe-8db9bf5c0091"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cfdi_total_pagado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

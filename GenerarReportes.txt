@@ -1,0 +1,151 @@
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
+
+import mx.gob.asa.iverar.conexiones.Connection_Class;
+
+import javax.swing.JTextField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import javax.swing.ImageIcon;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+
+public class GenerarReportes extends JFrame implements ActionListener {
+	Connection_Class Conexion = new Connection_Class();
+	public GenerarReportes() {
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.ORANGE);
+		getContentPane().add(panel, BorderLayout.NORTH);
+		
+		JLabel lblNewLabel = new JLabel("- VENTANA DE REPORTE DE XML LE\u00CDDOS // ASA -\r\n");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Tw Cen MT Condensed", Font.BOLD, 30));
+		panel.add(lblNewLabel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setForeground(new Color(0, 102, 102));
+		panel_1.setBackground(new Color(0, 102, 102));
+		getContentPane().add(panel_1, BorderLayout.SOUTH);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(GenerarReportes.class.getResource("/mx/gob/asa/iverar/img/btn_regresar_Naranja.png"))); // L O G O
+		panel_1.add(lblNewLabel_3);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setForeground(new Color(0, 102, 102));
+		panel_2.setBackground(new Color(0, 102, 102));
+		getContentPane().add(panel_2, BorderLayout.WEST);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setForeground(new Color(0, 102, 102));
+		panel_3.setBackground(new Color(0, 102, 102));
+		getContentPane().add(panel_3, BorderLayout.EAST);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setForeground(new Color(0, 102, 102));
+		panel_4.setBackground(new Color(0, 102, 102));
+		getContentPane().add(panel_4, BorderLayout.CENTER);
+		panel_4.setLayout(new BorderLayout(0, 0));
+		
+		JLabel lblNewLabel_2 = new JLabel("New ------ label");
+		lblNewLabel_2.setForeground(new Color(0, 102, 102));
+		lblNewLabel_2.setBackground(new Color(0, 102, 102));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		panel_4.add(lblNewLabel_2, BorderLayout.WEST);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setForeground(new Color(0, 102, 102));
+		lblNewLabel_4.setBackground(new Color(0, 102, 102));
+		panel_4.add(lblNewLabel_4, BorderLayout.EAST);
+		
+		JLabel lblNewLabel_5 = new JLabel("New label");
+		lblNewLabel_5.setForeground(new Color(0, 102, 102));
+		lblNewLabel_5.setBackground(new Color(0, 102, 102));
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_4.add(lblNewLabel_5, BorderLayout.SOUTH);
+		
+		JLabel lblNewLabel_6 = new JLabel("New label");
+		lblNewLabel_6.setForeground(new Color(0, 102, 102));
+		lblNewLabel_6.setBackground(new Color(0, 102, 102));
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel_4.add(lblNewLabel_6, BorderLayout.NORTH);
+		//--------------------------------------------------------------------------------------------------------------------
+		JLabel lblNewLabel_1 = new JLabel("");
+		panel_4.add(lblNewLabel_1, BorderLayout.CENTER);
+		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Connection_Class conexion = new Connection_Class();
+				JasperPrint jasperPrintWindow = null;
+				//int empleado = Integer.parseInt(noEmpleado.getText());
+				String jasperReport = "C:\\Users\\KRMENUGO\\JaspersoftWorkspace\\MyReports\\Rep_cfdis_ok.jasper";
+				
+				try {
+					jasperPrintWindow = JasperFillManager.fillReport(jasperReport, null, conexion.abrirConexion());
+				} catch (JRException | SQLException e1) {
+					e1.printStackTrace();
+				}
+				JasperViewer jasperViewer = new JasperViewer(jasperPrintWindow);
+				jasperViewer.setVisible(true);
+			}
+		});
+		lblNewLabel_1.setIcon(new ImageIcon(GenerarReportes.class.getResource("/mx/gob/asa/iverar/img/btn_generarReporte.png")));
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+	}
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GenerarReportes window = new GenerarReportes();
+					window.setSize(new Dimension(543, 271));
+					window.setLocationRelativeTo(null);
+					window.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+//				JasperPrint jasperPrintWindow = null;
+//				
+//				//int empleado = Integer.parseInt(noEmpleado.getText());
+//				String jasperReport = "/mx/gob/asa/iverar/img/btn_generarReporte.png";
+//				
+//				try {
+//					jasperPrintWindow = JasperFillManager.fillReport(jasperReport, null, conexion.abrirConexion());
+//				} catch (JRException | SQLException e1) {
+//					e1.printStackTrace();
+//				}
+//				JasperViewer jasperViewer = new JasperViewer(jasperPrintWindow);
+//				jasperViewer.setVisible(true);
+				

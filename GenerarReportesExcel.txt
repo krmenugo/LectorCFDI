@@ -1,0 +1,291 @@
+package mx.org.asa.ivr.manejadorxml.krmenugo.vistas;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Locale;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+//import exporttoexcel.toExcel;
+import jxl.Workbook;
+import jxl.WorkbookSettings;
+import jxl.write.Label;
+import jxl.write.Number;
+import jxl.write.WritableCellFormat;
+import jxl.write.WritableFont;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
+import java.io.File;
+
+import mx.gob.asa.iverar.conexiones.conexion_BD_LogIn;
+
+
+public class GenerarReportes extends javax.swing.JFrame implements ActionListener {
+	
+	public GenerarReportes() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GenerarReportes.class.getResource("/mx/gob/asa/iverar/img/lector_logo_peque.png")));
+		getContentPane().setLayout(new BorderLayout(0, 0));
+		getContentPane().setSize(new Dimension(637, 400));
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.ORANGE);
+		panel.setForeground(Color.ORANGE);
+		getContentPane().add(panel, BorderLayout.NORTH);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JLabel lblNewLabel = new JLabel("- REPORTE DE XML's LE\u00CDDOS //ASA -");
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Tw Cen MT Condensed", Font.BOLD, 24));
+		panel.add(lblNewLabel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(0, 51, 51));
+		panel_1.setForeground(Color.DARK_GRAY);
+		getContentPane().add(panel_1, BorderLayout.SOUTH);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(0, 51, 51));
+		panel_2.setForeground(Color.DARK_GRAY);
+		getContentPane().add(panel_2, BorderLayout.WEST);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(0, 51, 51));
+		panel_3.setForeground(Color.DARK_GRAY);
+		getContentPane().add(panel_3, BorderLayout.EAST);
+		
+		JPanel panel_4 = new JPanel();
+		getContentPane().add(panel_4, BorderLayout.CENTER);
+		panel_4.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(new Color(0, 51, 51));
+		panel_4.add(panel_5, BorderLayout.CENTER);
+		GridBagLayout gbl_panel_5 = new GridBagLayout();
+		gbl_panel_5.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel_5.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
+		gbl_panel_5.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_5.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel_5.setLayout(gbl_panel_5);
+		
+		JLabel label = new JLabel("...");
+		label.setForeground(new Color(0, 51, 51));
+		label.setFont(new Font("Dialog", Font.BOLD, 24));
+		GridBagConstraints gbc_label = new GridBagConstraints();
+		gbc_label.insets = new Insets(0, 0, 5, 0);
+		gbc_label.gridx = 6;
+		gbc_label.gridy = 0;
+		panel_5.add(label, gbc_label);
+		
+		JLabel label_1 = new JLabel("...");
+		label_1.setForeground(new Color(0, 51, 51));
+		label_1.setFont(new Font("Dialog", Font.BOLD, 24));
+		GridBagConstraints gbc_label_1 = new GridBagConstraints();
+		gbc_label_1.insets = new Insets(0, 0, 5, 5);
+		gbc_label_1.gridx = 2;
+		gbc_label_1.gridy = 1;
+		panel_5.add(label_1, gbc_label_1);
+		//ICONO BOTON 2
+		JLabel lblBtn_1 = new JLabel("");
+		lblBtn_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				  /* DATOS PARA LA CONEXION */
+				  String db = "lector_xml";
+				  String user = "root";
+				  String password = "";
+				  String url = "jdbc:mysql://localhost/"+db;
+
+				  Connection conn = null;  
+				  File file = new File("C:\\Users\\car\\Desktop\\REPORTE_CFDI_INFORMACIÓN.xls"); //NOMBRE Y PATH DEL NUEVO ARCHIVO
+
+				    //public toExcel(){
+				      url = "jdbc:mysql://localhost/"+db;
+				       try{
+				         Class.forName("com.mysql.jdbc.Driver");
+				         conn = DriverManager.getConnection( url, user , password );
+				         if ( conn!=null ){
+				            System.out.println("Conexion a BD "+db+"... Listo ");
+				         }
+				      }catch(SQLException er){
+				         System.err.println( er.getMessage() );
+				      }catch(ClassNotFoundException er){
+				         System.err.println( er.getMessage() );
+				      }
+				    //}
+				    
+				    //OBTENER DATOS DE BASE DE DATOS Y GENERAR EXCEL
+				    //public void WriteExcel(){
+				        int row=1;
+				        //FORMATO FUENTE
+				        WritableFont wf = new WritableFont( WritableFont.ARIAL, 11, WritableFont.NO_BOLD );
+				        WritableCellFormat cf = new WritableCellFormat(wf);    
+				        
+				        //INTERFAZ PARA LA HOJA DE CALCULO
+				        WritableSheet excelSheet = null;
+				        WritableWorkbook workbook = null;
+				        
+				        //CONFIGURACIÓN REGIONAL PARA LA HOJA DE CALCULO
+				        WorkbookSettings wbSettings = new WorkbookSettings();
+				        wbSettings.setLocale(new Locale("es", "ES"));
+				        
+				        try {
+				            workbook = Workbook.createWorkbook( file, wbSettings );
+				            //NOMBRE DE LA HOJA
+				            workbook.createSheet( "Reporte CFDI's", 0 );
+				            excelSheet = workbook.getSheet(0);
+				            System.out.println( "Creando hoja de Excel... Listo");            
+				        } catch (IOException ex) {
+				            System.err.println( ex.getMessage() );
+				        }
+				        
+				        //CONSULTA SQL 
+				        String sql = "select id_empleado_int, fecha_dt, nombre_empleado_str, folio_fiscal_str, rfc_str, total_pagado from cfdi";
+				         try{
+				             PreparedStatement pstm = conn.prepareStatement(sql);
+				             ResultSet res = pstm.executeQuery();
+				             System.out.println("Obteniendo Registros... ");
+				             
+				              while(res.next()){
+				            	  
+				            	  String id_empleado_int = res.getString("id_empleado_int");
+				            	  String fecha_dt = res.getString("fecha_dt");
+				            	  String nombre_empleado_str = res.getString("nombre_empleado_str");
+				            	  String folio_fiscal_str = res.getString("folio_fiscal_str");
+				            	  String rfc_str = res.getString("rfc_str");
+				            	  String total_pagado = res.getString("total_pagado");
+				            	  
+				                  Label id  =   	new Label( 0 , row, id_empleado_int , cf );
+				                  Label fecha = 	new Label( 1 , row, fecha_dt , cf );
+				                  Label nombre =	new Label( 2 , row, nombre_empleado_str , cf );
+				                  Label foliofiscal=new Label( 3 , row, folio_fiscal_str , cf );
+				                  Label rfc = 		new Label( 4 , row, rfc_str , cf );
+				                  Label total = 	new Label( 5 , row, total_pagado , cf );
+				                  
+				                  row ++;
+				                  
+				                 try {
+				                	 excelSheet.setColumnView(0, 12);
+				                	 excelSheet.setColumnView(1, 300);
+				                	 excelSheet.setColumnView(2, 40);
+				                	 excelSheet.setColumnView(3, 20);
+				                	 excelSheet.setColumnView(4, 20);
+				                	 excelSheet.setColumnView(5, 20);
+				                	 
+				                	 WritableFont titleFont = new WritableFont(WritableFont.ARIAL, 13, WritableFont.BOLD, true);
+				                     WritableCellFormat titleformat = new WritableCellFormat(titleFont);
+				                	 
+				                	 excelSheet.addCell(new Label(0,0,"ID",titleformat));
+				                	 excelSheet.addCell(new Label(1,0,"FECHA",titleformat));
+				                	 excelSheet.addCell(new Label(2,0,"NOMBRE DE EMPLEADO",titleformat));
+				                	 excelSheet.addCell(new Label(3,0,"FOLIO FISCAL",titleformat));
+				                	 excelSheet.addCell(new Label(4,0,"RFC",titleformat));
+				                	 excelSheet.addCell(new Label(5,0,"TOTAL PAGADO",titleformat));
+				                	 
+				                     excelSheet.addCell( id );
+				                     excelSheet.addCell( fecha );
+				                     excelSheet.addCell( nombre );
+				                     excelSheet.addCell( foliofiscal );
+				                     excelSheet.addCell( rfc );
+				                     excelSheet.addCell( total );
+
+				                 } catch (WriteException ex) {
+				                     System.err.println(  ex.getMessage() );
+				                 } 
+				              }
+				             res.close();         
+				         }catch( SQLException er ){
+				            System.err.println( er.getMessage() );
+				        }
+				         
+				        //GENERAR EXCEL
+				        try {
+				            workbook.write();
+				            workbook.close();
+				            System.out.println(  "Escribiendo... Listo");         
+				        } catch (IOException ex) {
+				            System.err.println(  ex.getMessage() );
+				        }
+				        catch (WriteException ex) {
+				           System.err.println(  ex.getMessage() );
+				        }
+				        System.out.println(  "PROCESO EXITOSO"  );
+				    //}
+				    
+//				    public static void main(String[] args) {
+//				        new toExcel().WriteExcel();
+//				    }
+			}
+		});
+		//------------------------------------------------------------------------------------------------------------
+		//ICONO LOGO 2
+		JLabel lblIcono_1 = new JLabel("");
+		lblIcono_1.setSize(300, 300);
+		GridBagConstraints gbc_lblIcono_1 = new GridBagConstraints();
+		gbc_lblIcono_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIcono_1.gridx = 2;
+		gbc_lblIcono_1.gridy = 2;
+		panel_5.add(lblIcono_1, gbc_lblIcono_1);
+		lblIcono_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/gob/asa/iverar/img/reporte_logo_peque.png")));
+		lblBtn_1.setToolTipText("GENERAR REPORTE");
+		GridBagConstraints gbc_lblBtn_1 = new GridBagConstraints();
+		gbc_lblBtn_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBtn_1.gridx = 4;
+		gbc_lblBtn_1.gridy = 2;
+		panel_5.add(lblBtn_1, gbc_lblBtn_1);
+		lblBtn_1.setIcon(new ImageIcon(GenerarReportes.class.getResource("/mx/gob/asa/iverar/img/btn_generarReporte.png")));
+		lblBtn_1.setSize(800,100);
+		
+		JLabel lblNewLabel_1 = new JLabel("Neww");
+		lblNewLabel_1.setForeground(new Color(0, 51, 51));
+		lblNewLabel_1.setFont(new Font("Dialog", Font.BOLD, 24));
+		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
+		gbc_lblNewLabel_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblNewLabel_1.gridx = 1;
+		gbc_lblNewLabel_1.gridy = 4;
+		panel_5.add(lblNewLabel_1, gbc_lblNewLabel_1);
+		//------------------------------------------------------------------------------------------------------------
+}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+	}
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GenerarReportes window = new GenerarReportes();
+					window.setSize(new Dimension(637, 350));
+
+					window.setVisible(true);
+					window.setLocationRelativeTo(null);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+}
